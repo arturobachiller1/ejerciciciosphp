@@ -8,7 +8,6 @@
 
 $numero = 8;
 echo "<table>";
-
 for ($i = 1; $i<=10; $i++){
 
     echo "<td> " . $numero * $i . "</td>";
