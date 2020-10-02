@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html><head>
         <meta charset="UTF-8">
-        <title>Ejercicio12</title>
+        <title>Ejercicio13</title>
 </head><body>
     <h2>Formulario</h2>
     <form method="post" action="">
@@ -11,7 +11,7 @@
     
     <?php
 
-    if(isset($_POST) && !empty($_POST) && strlen($_POST['nombre']) < 3){
+    if(isset($_POST) && !empty($_POST) && strlen($_POST['nombre']) <= 3){
         echo "Bienvenido $_POST[nombre]";
     }
      else {
