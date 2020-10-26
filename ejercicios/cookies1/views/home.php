@@ -9,12 +9,22 @@
         <label>Deseos</label><input type="text" value="" name="deseos"> <br>
         <input type="submit" value="deseos">
     </form>
+    
+    <a href="?method=delete"> Borrar todo</a>
 
-    <?php if(count($deseos)){foreach($deseos as $deseo => $id){
-        echo "Este es tu deseo numero $id: " . $deseo;
-    }}else{
+    <?php if(count($deseos)){
+        echo "<ul>";
+        foreach($deseos as $deseo => $id){
+        echo "<li>Este es tu deseo numero $id: " . $deseo . 
+        "<a href='?method=delete1&id=$id>Borrar</a>" .
+        
+        "</li>";
+        }
+        echo "</ul>";
+    }else{
         echo "No hay deseos en tu lista";
     } ?>
+
     
  
 </body></html>

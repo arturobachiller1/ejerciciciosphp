@@ -15,6 +15,12 @@ class app
 
 
   public function home(){
+    if(isset($_COOKIE['deseos'])){
+      $deseos = unserialize($_COOKIE['deseos']);
+    }else{
+      $deseos = [];
+    }
+ 
     include('views/home.php');
   }
 
@@ -33,15 +39,31 @@ class app
     header('Location: index.php?method=home');
 
   }
-
-  public function new(){
-    $deseos = [];
-    $deseos[] = $_POST['deseos'];
-    //preguntar sobre unserialize y serialize
-    $deseos = unserialize($_COOKIE['deseos']);
-    setcookie('deseos',serialize($deseos),time() + 60*60*2);
-
   
+  
+  public function new(){
+    if (isset($_COOKIE['deseos'])){
+      $deseos = unserialize($_COOKIE['deseos']);
+}else{
+  $deseos = [];
+
+}
+$deseos[] = $_POST['deseos'];
+setcookie('deseos',serialize($deseos),time() + 60*60*2);
+    header('Location: index.php?method=home');
+  }
+
+  public function delete(){
+
+    setcookie('deseos','',time() - 1);
+
+  header('Location: index.php?method=home');
+  }
+
+  public function delete1(){
+
+    setcookie('deseos','',time() - 1);
+
     header('Location: index.php?method=home');
   }
 
